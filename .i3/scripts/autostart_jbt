@@ -1,0 +1,4 @@
+# /bin/bash
+i3-msg 'workspace 1; exec exec /home/borzek/.local/share/JetBrains/Toolbox/bin/jetbrains-toolbox &;'
+sleep 2
+i3-msg 'workspace 1; kill;'
