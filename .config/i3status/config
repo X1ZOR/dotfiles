@@ -13,14 +13,29 @@ general {
         interval = 1
 }
 
+#order += "pomodoro"
 order += "disk /"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "load"
 order += "cpu_temperature 0"
+order += "backlight"
 order += "volume master"
 order += "battery all"
 order += "tztime local"
+
+pomodoro {
+	format = "{mmss}"
+	format_active = "🍅  [{format}]"
+	format_stopped = " 🍅 "
+}
+
+backlight {
+	format = " ☀️ : {level}% "
+	command = "xbacklight -get"
+	cache_timeout = 1
+	brightness_delta = 10
+}
 
 wireless _first_ {
         format_up = " W: (%quality at %essid) %ip "
