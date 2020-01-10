@@ -1,0 +1,16 @@
+#!/bin/bash
+
+### Options ###
+mirror="Mirror"
+internal="Internal"
+
+chosen="$(echo -e "Mirror\nInternal" | rofi -dmenu -p "Display > ")"
+case $chosen in
+    $mirror)
+        autorandr -l mirror
+        ;;
+    $internal)
+        autorandr -l internal
+        ;;
+esac
+
