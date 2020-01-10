@@ -1,0 +1,35 @@
+#!/bin/bash
+
+### Options ###
+muted=$(awk 'NR==6{print $6}' <(amixer -D pulse sget Master) | cut -d "[" -f2 | cut -d "]" -f1)
+actualVolume=$(awk 'NR==6{print $5}' <(amixer -D pulse sget Master) | cut -d "[" -f2 | cut -d "]" -f1)
+mute="Mute"
+unmute="Unmute"
+volume5up="+5%"
+volume5down="-5%"
+
+if [ "$muted" == "off" ];
+then
+	muted=Muted
+	mute=Unmute
+else
+	muted=Unmuted
+	mute=Mute
+fi
+
+chosen="$(echo -e "$mute\n$volume5up\n$volume5down" | rofi -dmenu -p "$muted - $actualVolume - Volume > ")"
+case $chosen in
+    $mute)
+	if [ "$muted" == "Unmuted" ]; then
+		amixer -D pulse sset Master mute
+	elif [ "$muted" == "Muted" ]; then
+	        amixer -D pulse sset Master unmute
+	fi	
+        ;;
+    $volume5up)
+	amixer -D pulse sset Master 5%+
+	;;
+    $volume5down)
+	amixer -D pulse sset Master 5%-
+esac
+
