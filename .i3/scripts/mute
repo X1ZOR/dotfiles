@@ -1,0 +1,8 @@
+#!/bin/bash
+muted=$(awk 'NR==6{print $6}' <(amixer -D pulse sget Master) | cut -d "[" -f2 | cut -d "]" -f1)
+
+if [ "$muted" == "on" ]; then
+        amixer -D pulse sset Master mute
+elif [ "$muted" == "off" ]; then
+	amixer -D pulse sset Master unmute
+fi

@@ -65,7 +65,7 @@ bindsym $mod+m exec ~/.i3/scripts/rofi-randr
 bindsym $mod+n exec ~/.i3/scripts/networkmenu.py
 
 # mute keybinding
-bindsym XF86AudioMute exec mute
+bindsym XF86AudioMute exec ~/.i3/scripts/mute
 
 # volume up keybinding
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+
