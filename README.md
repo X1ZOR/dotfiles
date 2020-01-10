@@ -10,4 +10,11 @@
   - rofi (for rofi-pass and other rofi dmenus)
   - rofi-pass
   - xbacklight (for screen brightness)
-  - 
+
+### Included Scripts
+  - rofi-randr
+  - rofi-volume
+  - networkmenu
+  - mute
+  - autostart-jbt
+ 
