@@ -4,13 +4,17 @@
 mirror="Mirror"
 internal="Internal"
 
+### OUTPUTS ###
+hdmi=$(xrandr | grep "HDMI" -m 1 | cut -c 1-6 | tr -d ' ')
+edp=$(xrandr | grep "eDP" -m 1| cut -c 1-5 | tr -d ' ')
+
 chosen="$(echo -e "Mirror\nInternal" | rofi -dmenu -p "Display > ")"
 case $chosen in
     $mirror)
-        autorandr -l mirror
+        xrandr --output $edp --mode 1920x1080 && xrandr --output $hdmi --mode 1920x1080
         ;;
     $internal)
-        autorandr -l internal
+        xrandr --output $edp --mode 2560x1440 && xrandr --output $hdmi --off
         ;;
 esac
 
