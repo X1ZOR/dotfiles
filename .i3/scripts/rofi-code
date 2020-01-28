@@ -1,0 +1,24 @@
+#!/bin/bash
+
+### Options ###
+ciamService="Account Management Service"
+ciamFrontend="Account Management Frontend"
+newWorkspace="New Workspace"
+
+### Paths ###
+ciamServicePath="$HOME/dev/campus-it-account-management-service"
+ciamFrontendPath="$HOME/dev/campus-it-account-management-frontend"
+
+chosen="$(echo -e "$ciamService\n$ciamFrontend\n$newWorkspace" | rofi -dmenu -p "VSCode Workspace > ")"
+
+case $chosen in
+	$ciamService)
+		code $ciamServicePath
+		;;
+	$ciamFrontend)
+		code $ciamFrontendPath
+		;;
+	$newWorkspace)
+		code
+		;;
+esac

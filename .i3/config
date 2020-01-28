@@ -61,8 +61,15 @@ bindsym $mod+p exec rofi-pass
 # rofi-randr
 bindsym $mod+m exec ~/.i3/scripts/rofi-randr
 
+# change workspaces with scrolling
+bindsym --whole-window $mod+button4 workspace next_on_output
+bindsym --whole-window $mod+button5 workspace prev_on_output
+
+# vscode workspace selection
+bindsym $mod+F1 exec ~/.i3/scripts/rofi-code
+
 # powermenu
-bindsym $mod+s exec ~/.i3/scripts/rofi-powermenu
+bindsym $mod+o exec ~/.i3/scripts/rofi-powermenu
 
 # network-manager
 bindsym $mod+n exec ~/.i3/scripts/networkmenu.py
