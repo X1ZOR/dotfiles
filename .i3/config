@@ -61,6 +61,9 @@ bindsym $mod+p exec rofi-pass
 # rofi-randr
 bindsym $mod+m exec ~/.i3/scripts/rofi-randr
 
+# powermenu
+bindsym $mod+s exec ~/.i3/scripts/rofi-powermenu
+
 # network-manager
 bindsym $mod+n exec ~/.i3/scripts/networkmenu.py
 

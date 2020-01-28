@@ -1,0 +1,32 @@
+#!/bin/bash
+
+### Options ###
+optionShutdown="Shutdown"
+optionRestart="Restart"
+optionLogout="Logout"
+optionLock="Lock"
+optionReloadConfig="Reload i3 config"
+optionRestarti3="Restart i3"
+
+chosen="$(echo -e "$optionShutdown\n$optionRestart\n$optionLogout\n$optionLock\n$optionReloadConfig\n$optionRestarti3" | rofi -dmenu -p "Powermenu > ")"
+case $chosen in
+    $optionShutdown)
+        shutdown now
+        ;;
+    $optionRestart)
+        reboot
+	;;
+    $optionLogout)
+	i3-msg 'exit'
+	;;
+    $optionLock)
+    	i3lock-fancy
+	;;
+    $optionReloadConfig)
+        i3-msg 'reload'
+    	;;
+    $optionRestarti3)
+        i3-msg "restart"
+	;;	
+esac
+
