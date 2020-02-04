@@ -14,7 +14,13 @@
 ### Included Scripts
   - rofi-randr
   - rofi-volume
+  - rofi-powermenu 
+  - rofi-code
   - networkmenu
   - mute
   - autostart-jbt
- 
+
+##### rofi-code
+A simple vscode workspace selector, written in rofi.
+To use the script, you nedd to have the wslist file in the i3 scripts
+directory, to save the workspaces. 
