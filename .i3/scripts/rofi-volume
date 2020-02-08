@@ -20,16 +20,17 @@ fi
 chosen="$(echo -e "$mute\n$volume5up\n$volume5down" | rofi -dmenu -p "$muted - $actualVolume - Volume > ")"
 case $chosen in
     $mute)
-	if [ "$muted" == "Unmuted" ]; then
-		amixer -D pulse sset Master mute
-	elif [ "$muted" == "Muted" ]; then
-	        amixer -D pulse sset Master unmute
-	fi	
+		if [ "$muted" == "Unmuted" ]; then
+			amixer -D pulse sset Master mute
+		elif [ "$muted" == "Muted" ]; then
+				amixer -D pulse sset Master unmute
+		fi	
         ;;
     $volume5up)
-	amixer -D pulse sset Master 5%+
-	;;
+		amixer -D pulse sset Master 5%+
+		;;
     $volume5down)
-	amixer -D pulse sset Master 5%-
+		amixer -D pulse sset Master 5%-
+		;;
 esac
 

@@ -15,18 +15,18 @@ case $chosen in
         ;;
     $optionRestart)
         reboot
-	;;
+	    ;;
     $optionLogout)
 	i3-msg 'exit'
-	;;
+	    ;;
     $optionLock)
     	i3lock-fancy
-	;;
+	    ;;
     $optionReloadConfig)
         i3-msg 'reload'
     	;;
     $optionRestarti3)
         i3-msg "restart"
-	;;	
+	    ;;	
 esac
 
